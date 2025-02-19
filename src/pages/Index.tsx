@@ -88,15 +88,30 @@ const Index = () => {
             <a href="tel:+33753894507" className="contact-item">
               <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
             </a>
+            <a href="tel:+33753894507" className="contact-item2">
+              <i className="fas fa-phone-alt"></i> 
+            </a>
           </div>
           <div className="contact-center">
             <a href="mailto:laplateformedestock@gmail.com" className="contact-item">
               <i className="fas fa-envelope"></i> laplateformedestock@gmail.com
             </a>
+            <a href="mailto:laplateformedestock@gmail.com" className="contact-item2">
+              <i className="fas fa-envelope"></i> 
+            </a>
           </div>
           <div className="contact-right">
             <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item">
               <i className="fab fa-telegram"></i>
+            </a>
+            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item">
+              <i className="fab fa-snapchat"></i>
+            </a>
+            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item2">
+              <i className="fab fa-telegram"></i>
+            </a>
+            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item2">
+              <i className="fab fa-snapchat"></i>
             </a>
           </div>
         </div>
@@ -179,7 +194,7 @@ const Index = () => {
       <h1>Des produits de qualité à prix cassés !</h1>
     </div>
     <div className="products-grid">
-      {productImages.slice(0, 7).map((product, index) => (
+      {productImages.slice(0, 6).map((product, index) => (
         <div key={index} className="product-card">
           <img
             src={product.image}

@@ -111,7 +111,7 @@ body {
 
 /* Barre de contact fixe */
 .contact-bar {
-  background-color: orange;
+  background-color: var(--primary-orange);
   color: white;
   position: fixed;
   top: 0;
@@ -645,6 +645,7 @@ font-size: 1rem;
   gap: 1rem;
 }
 
+
 /* Responsive design */
 @media (max-width: 768px) {
   .hero h1 {
@@ -654,18 +655,91 @@ font-size: 1rem;
   .newsletter-form {
     flex-direction: column;
   }
-  
-  .nav {
-    display: none;
+  @media (min-width: 768px) {
+    .mobile-menu-button{
+      display: none;
+    }
   }
   
-  .mobile-menu-button {
-    display: block;
+  @media (max-width: 768px) {
+    .nav {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px; /* Ajuste selon la hauteur de ton header */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      background: var(--primary-orange);
+      border-radius: 10px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      padding: 15px 0;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+  
+    .nav.show {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+  
+    .nav-link {
+      padding: 12px;
+      text-align: center;
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+  
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+  
+    /* Stylisation du bouton burger */
+    .mobile-menu-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--primary-orange);
+      font-size: 24px;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .mobile-menu-button:active {
+      transform: scale(0.9);
+    }
+  
+    /* Animation de l'icône */
+    .mobile-menu-button .fa-bars,
+    .mobile-menu-button .fa-times {
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .mobile-menu-button .fa-times {
+      transform: rotate(180deg);
+    }
+  }}
+  @media (min-width: 768px) {
+    .nav {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      position: static;
+      transform: none;
+      background: transparent;
+      flex-direction: row;
+    }
+  
+    .mobile-menu-button {
+      display: none;
+    }
   }
-}
-
-@media (min-width: 769px) {
-  .mobile-menu-button {
-    display: none;
-  }
-}
+  
