@@ -140,29 +140,21 @@ const Index = () => {
           </div>
         </section>
 
-        {/* 🚀 Section Partenaires avec défilement infini */}
-        <section className="partners">
-          <div className="container">
-            <h2>Nos partenaires, vos meilleures affaires !</h2>
-            <div className="carousel-wrapper">
-              <motion.div 
-                className="carousel"
-                animate={{ x: ["0%", "-50%"] }} 
-                transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              >
-                {[...partnersLogos, ...partnersLogos].map((logo, index) => (
-                  <div key={index} className="partner-logo-wrapper">
-                    <img
-                      src={`${import.meta.env.BASE_URL}/${logo}`} 
-                      alt={`Partenaire ${index + 1}`}
-                      className="partner-logo"
-                    />
-                  </div>
-                ))}
-              </motion.div>
-            </div>
+      {/* Section Partenaires */}
+      <section className="partners">
+        <div className="container">
+          <h2>Nos partenaires, vos meilleures affaires !</h2>
+          <div className="carousel-wrapper">
+            <motion.div className="carousel" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, duration: 10, ease: "linear" }}>
+              {[...partnersLogos, ...partnersLogos].map((logo, index) => (
+                <div key={index} className="partner-logo-wrapper">
+                  <img src={logo} alt={`Partenaire ${index + 1}`} className="partner-logo" />
+                </div>
+              ))}
+            </motion.div>
           </div>
-        </section>
+        </div>
+      </section>
 
         <section className="stats">
           <h1>Plateforme Destock : 
