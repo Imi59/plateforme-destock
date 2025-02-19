@@ -218,17 +218,17 @@ const Index = () => {
        
 <section className="partners2">
   <div className="carousel-wrapper2">
-    <motion.div
-      className="carousel2"
-      animate={{ x: ["0%", "-100%"] }}
-      transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-    >
-      {[...productImages, ...productImages].map((product, index) => (
-        <div key={index} className="carousel-item">
-          <img src={product.image} alt={`Image ${index + 1}`} className="partner-logo2" />
-        </div>
-      ))}
-    </motion.div>
+  <motion.div
+  className="carousel2"
+  animate={{ x: ["0%", "-50%"] }}  // Défile sur seulement 50% pour éviter un arrêt brusque
+  transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+>
+  {[...productImages, ...productImages].map((product, index) => (
+    <div key={index} className="carousel-item">
+      <img src={product.image} alt={`Image ${index + 1}`} className="partner-logo2" />
+    </div>
+  ))}
+</motion.div>
   </div>
 </section>
 
