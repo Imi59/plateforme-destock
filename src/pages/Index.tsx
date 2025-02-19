@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Menu, Smile, Truck, Headphones } from 'lucide-react';
 import { motion } from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Link } from 'react-router-dom';
 // Importation des images depuis src/assets/
 import logo from "@/assets/logo.png";
 import statsImage from "@/assets/stats.avif";
@@ -221,7 +222,7 @@ const Index = () => {
   <motion.div
   className="carousel2"
   animate={{ x: ["0%", "-50%"] }}  // Défile sur seulement 50% pour éviter un arrêt brusque
-  transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+  transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
 >
   {[...productImages, ...productImages].map((product, index) => (
     <div key={index} className="carousel-item">
@@ -279,30 +280,42 @@ const Index = () => {
       </main>
 
       <footer className="footer">
-        <div className="footer-content">
-          <img src={logo} alt="logo de l'entreprise" />
-          <div>
-            <h3>CONTACT </h3>
-            <ul className="footer-links">
-              <li><a href="tel:+33753894507" className="footer-link">
-                <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
-              </a></li>
-              <li><a href="mailto:laplateformedestock@gmail.com" className="footer-link">
-                <i className="fas fa-envelope"></i> laplateformedestock@gmail.com
-              </a></li>
-            </ul>
-          </div>
+      <div className="footer-content">
+        <img src={logo} alt="logo de l'entreprise" />
 
-          <div>
-            <h3>LIENS UTILES</h3>
-            <ul className="footer-links">
-              <li><a href="/privacy" className="footer-link">Politique de confidentialité</a></li>
-              <li><a href="/terms" className="footer-link">Mentions légales</a></li>
-              <li><a href="/cookies" className="footer-link">Politique de cookies</a></li>
-            </ul>
-          </div>
+        <div>
+          <h3>CONTACT</h3>
+          <ul className="footer-links">
+            <li>
+              <a href="tel:+33753894507" className="footer-link">
+                <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
+              </a>
+            </li>
+            <li>
+              <a href="mailto:laplateformedestock@gmail.com" className="footer-link">
+                <i className="fas fa-envelope"></i> laplateformedestock@gmail.com
+              </a>
+            </li>
+          </ul>
         </div>
-      </footer>
+
+        <div>
+          <h3>LIENS UTILES</h3>
+          <ul className="footer-links">
+            <li><Link to="/privacy" className="footer-link">Politique de confidentialité</Link></li>
+            <li><Link to="/mentions-legales" className="footer-link">Mentions légales</Link></li>
+            <li><Link to="/cookies" className="footer-link">Politique de cookies</Link></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© {new Date().getFullYear()} PLATEFORME DESTOCK. Tous droits réservés.</p>
+        <p>
+          Fait par <a href="https://ib-web-solutions.fr" target="_blank" rel="noopener noreferrer" className="ib-link">IB WEB SOLUTIONS</a>
+        </p>
+      </div>
+    </footer>
 
       {/* Bannière des cookies */}
       {showCookieBanner && (
