@@ -265,7 +265,7 @@ const Index = () => {
 
       <footer className="footer">
         <div className="footer-content">
-          <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="logo de l'entreprise" />
+          <img src={logo} alt="logo de l'entreprise" />
           <div>
             <h3>CONTACT </h3>
             <ul className="footer-links">
