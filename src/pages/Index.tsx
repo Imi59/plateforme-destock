@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import logo from "@/assets/logo.png";
 import statsImage from "@/assets/stats.avif";
 
-// Partenaires
+// Importation des logos des partenaires
 import aldi from "@/assets/aldi.png";
 import amazon from "@/assets/amazon.png";
 import colis from "@/assets/colis.png";
@@ -14,9 +14,18 @@ import lidl from "@/assets/lidl.png";
 import shein from "@/assets/shein.png";
 import temu from "@/assets/temu.png";
 
+// Importation des images des produits
+import img1 from "@/assets/1.jpg";
+import img2 from "@/assets/2.jpg";
+import img4 from "@/assets/4.jpg";
+import img5 from "@/assets/5.jpg";
+import img6 from "@/assets/6.jpg";
+import img7 from "@/assets/7.jpg";
+
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showCookieBanner, setShowCookieBanner] = useState(false);
+  const [showHelpBubble, setShowHelpBubble] = useState(true);
 
   useEffect(() => {
     const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
@@ -30,30 +39,28 @@ const Index = () => {
     setShowCookieBanner(false);
   };
 
-  const partnersLogos = [aldi, amazon, colis, lidl, shein, temu];
-
-  // Images des produits
-  const productImages = [
-    "1.jpg", "2.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"
-  ];
-
-
   const closeHelpBubble = () => {
-    setShowHelpBubble(false);  // Fermer la bulle lorsque la croix est cliquée
+    setShowHelpBubble(false);
   };
 
-  const [showHelpBubble, setShowHelpBubble] = useState(true); 
+  const partnersLogos = [aldi, amazon, colis, lidl, shein, temu];
+  const productImages = [
+    { image: img1, description: "COLIS" }, 
+    { image: img2, description: "CHAUSSURES" },
+    { image: img4, description: "ACCESSOIRES" },
+    { image: img5, description: "PALETTES VARIÉES" },
+    { image: img6, description: "PARFUMS" },
+    { image: img7, description: "AUTOMOBILES" }
+  ];
 
   return (
     <>
-      {/* Bulle d'aide positionnée au-dessus du bouton WhatsApp */}
+      {/* Bulle d'aide */}
       {showHelpBubble && (
         <div className="help-bubble">
-          <p></p>
-          Nous sommes ravis 
-          <br />de vous aider 24/24 7/7 !
+          <p>Nous sommes ravis de vous aider 24/24 7/7 !</p>
           <button onClick={closeHelpBubble} className="close-button">
-            <X size={16} color="white" /> {/* Icône de croix */}
+            <X size={16} color="white" />
           </button>
         </div>
       )}
@@ -65,29 +72,14 @@ const Index = () => {
             <a href="tel:+33753894507" className="contact-item">
               <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
             </a>
-            <a href="tel:+33753894507" className="contact-item2">
-              <i className="fas fa-phone-alt"></i>
-            </a>
           </div>
           <div className="contact-center">
             <a href="mailto:laplateformedestock@gmail.com" className="contact-item">
               <i className="fas fa-envelope"></i> laplateformedestock@gmail.com
             </a>
-            <a href="mailto:laplateformedestock@gmail.com" className="contact-item2">
-              <i className="fas fa-envelope"></i> 
-            </a>
           </div>
           <div className="contact-right">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="contact-item">
-              <i className="fab fa-snapchat"></i>
-            </a>
             <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item">
-              <i className="fab fa-telegram"></i>
-            </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="contact-item2">
-              <i className="fab fa-snapchat"></i>
-            </a>
-            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item2">
               <i className="fab fa-telegram"></i>
             </a>
           </div>
@@ -97,70 +89,55 @@ const Index = () => {
       {/* Header */}
       <header className="header">
         <div className="container header-content">
-        <a href="/" className="logo">
+          <a href="/" className="logo">
             <img src={logo} alt="logo" />
           </a>
 
-          <button
-            className="mobile-menu-button"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
+          <button className="mobile-menu-button" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? (
-              <i className="fas fa-times" style={{ fontSize: '24px' }}></i> // Icône "X"
+              <i className="fas fa-times" style={{ fontSize: '24px' }}></i>
             ) : (
-              <i className="fas fa-bars" style={{ fontSize: '24px' }}></i> // Icône "Menu"
+              <i className="fas fa-bars" style={{ fontSize: '24px' }}></i>
             )}
           </button>
 
           <nav className={`nav ${isMobileMenuOpen ? 'show' : ''}`}>
-            <a href="/" className="nav-link">
-              ACCUEIL
-            </a>
-            <a href="/about" className="nav-link">
-              À PROPOS
-            </a>
-            <a href="/contact" className="nav-link">
-              CONTACT
-            </a>
+            <a href="/" className="nav-link">ACCUEIL</a>
+            <a href="/about" className="nav-link">À PROPOS</a>
+            <a href="/contact" className="nav-link">CONTACT</a>
           </nav>
         </div>
       </header>
 
       <main>
+        {/* Hero Section */}
         <section className="hero">
           <div className="container hero-content">
-            <p>
-              AUTOMOBILE, AGROALIMENTAIRE, VÊTEMENTS, ÉLECTROMÉNAGER, HIGH-TECH À PRIX FOUS !
-            </p>
-            <h1> La plateforme professionnelle de <strong className='strong1'>déstockage</strong> </h1>
-          
-            <a href="#products" className="button button-primary">
-              Contactez-nous dès maintenant !
-            </a>
+            <p>AUTOMOBILE, AGROALIMENTAIRE, VÊTEMENTS, ÉLECTROMÉNAGER, HIGH-TECH À PRIX FOUS !</p>
+            <h1>La plateforme professionnelle de <strong className='strong1'>déstockage</strong></h1>
+            <a href="#products" className="button button-primary">Contactez-nous dès maintenant !</a>
           </div>
         </section>
 
-      {/* Section Partenaires */}
-      <section className="partners">
-        <div className="container">
-          <h2>Nos partenaires, vos meilleures affaires !</h2>
-          <div className="carousel-wrapper">
-            <motion.div className="carousel" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, duration: 10, ease: "linear" }}>
-              {[...partnersLogos, ...partnersLogos].map((logo, index) => (
-                <div key={index} className="partner-logo-wrapper">
-                  <img src={logo} alt={`Partenaire ${index + 1}`} className="partner-logo" />
-                </div>
-              ))}
-            </motion.div>
+        {/* Section Partenaires */}
+        <section className="partners">
+          <div className="container">
+            <h2>Nos partenaires, vos meilleures affaires !</h2>
+            <div className="carousel-wrapper">
+              <motion.div className="carousel" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, duration: 10, ease: "linear" }}>
+                {[...partnersLogos, ...partnersLogos].map((logo, index) => (
+                  <div key={index} className="partner-logo-wrapper">
+                    <img src={logo} alt={`Partenaire ${index + 1}`} className="partner-logo" />
+                  </div>
+                ))}
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
+        {/* Stats Section */}
         <section className="stats">
-          <h1>Plateforme Destock : 
-            <br /> le leader du déstockage en Europe ! 
-            <br />Des milliers de produits à prix cassés, disponibles immédiatement
-          </h1>
+          <h1>Plateforme Destock : le leader du déstockage en Europe !</h1>
           <img src={statsImage} alt="Image des réalisations" className="stats-image" />
           <div className="stats-counter">
             <div className="counter-item">
@@ -178,25 +155,18 @@ const Index = () => {
           </div>
         </section>
 
-          {/* Products Section */}
-          <section id="products" className="products">
+        {/* Products Section */}
+        <section id="products" className="products">
           <div className="container">
             <div className="product1">
-              <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="logo de l'entreprise" />
+              <img src={logo} alt="logo de l'entreprise" />
               <h1>Des produits de qualité à prix cassés !</h1>
             </div>
             <div className="products-grid">
-              {[
-                { image: "1.jpg", description: "COLIS" }, 
-                { image: "2.jpg", description: "CHAUSSURES" },
-                { image: "4.jpg", description: "ACCESSOIRES" },
-                { image: "5.jpg", description: "PALETTES VARIÉES" },
-                { image: "6.jpg", description: "PARFUMS" },
-                { image: "7.jpg", description: "AUTOMOBILES" }
-              ].map((product, index) => (
+              {productImages.map((product, index) => (
                 <div key={index} className="product-card">
                   <img
-                    src={`${import.meta.env.BASE_URL}/${product.image}`} 
+                    src={product.image}
                     alt={`Produit ${index + 1}`}
                     className="product-image"
                   />
@@ -207,7 +177,7 @@ const Index = () => {
               ))}
             </div>
             <h2>
-              ET BIEN PLUS ENCORE ... 
+              ET BIEN PLUS ENCORE ...
               <br />
               <a href="tel:+33123456789" className="contact-link">contactez-nous dès maintenant 7/7 24/24 !</a>
             </h2>
