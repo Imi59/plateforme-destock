@@ -100,7 +100,7 @@ const Index = () => {
       <header className="header">
         <div className="container header-content">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="logo" />
+            <img src="/assets/logo.png" alt="logo" />
           </a>
 
           <button
