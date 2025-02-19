@@ -20,23 +20,23 @@ const Index = () => {
   };
 
   const partnersLogos = [
-    "aldi.png", "amazon.png", "colis.png", 
-    "lidl.png", "shein.png", "temu.png"
+    "assets/aldi.png", "assets/amazon.png", "assets/colis.png", 
+    "assets/lidl.png", "assets/shein.png", "assets/temu.png"
   ];
   const images = [
-    "/public/1.jpg",
-    "/public/2.jpg",
-    "/public/4.jpg",
-    "/public/5.jpg",
-    "/public/6.jpg",
-    "/public/7.jpg",
-    "/public/8.jpg",
-    "/public/9.jpg",
-    "/public/10.jpg",
-    "/public/11.jpg",
-    "/public/12.jpg",
-    "/public/13.jpg",
-    "/public/14.jpg",
+    "/assets/1.jpg",
+    "/assets/2.jpg",
+    "/assets/4.jpg",
+    "/assets/5.jpg",
+    "/assets/6.jpg",
+    "/assets/7.jpg",
+    "/assets/8.jpg",
+    "/assets/9.jpg",
+    "/assets/10.jpg",
+    "/assets/11.jpg",
+    "/assets/12.jpg",
+    "/assets/13.jpg",
+    "/assets/14.jpg",
   ];
 
   const closeHelpBubble = () => {
