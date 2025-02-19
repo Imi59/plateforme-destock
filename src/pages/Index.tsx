@@ -2,17 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { X, Menu, Smile, Truck, Headphones } from 'lucide-react';
 import { motion } from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-// Importation des images pour que Vite les gère bien
-import logo from "@/assets/logo.png";
-import statsImage from "@/assets/stats.avif";
-
-// Partenaires (Assurez-vous que ces images sont dans `src/assets/`)
-import aldi from "@/assets/aldi.png";
-import amazon from "@/assets/amazon.png";
-import colis from "@/assets/colis.png";
-import lidl from "@/assets/lidl.png";
-import shein from "@/assets/shein.png";
-import temu from "@/assets/temu.png";
 
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,22 +19,12 @@ const Index = () => {
     setShowCookieBanner(false);
   };
 
-  const partnersLogos = [aldi, amazon, colis, lidl, shein, temu];
-
+  const partnersLogos = [
+    "aldi.png", "amazon.png", "colis.png", 
+    "lidl.png", "shein.png", "temu.png"
+  ];
   const images = [
-    "/assets/1.jpg",
-    "/assets/2.jpg",
-    "/assets/4.jpg",
-    "/assets/5.jpg",
-    "/assets/6.jpg",
-    "/assets/7.jpg",
-    "/assets/8.jpg",
-    "/assets/9.jpg",
-    "/assets/10.jpg",
-    "/assets/11.jpg",
-    "/assets/12.jpg",
-    "/assets/13.jpg",
-    "/assets/14.jpg",
+    "1.jpg", "2.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg",
   ];
 
   const closeHelpBubble = () => {
@@ -56,8 +35,8 @@ const Index = () => {
 
   return (
     <>
-        {/* Bulle d'aide positionnée au-dessus du bouton WhatsApp */}
-        {showHelpBubble && (
+      {/* Bulle d'aide positionnée au-dessus du bouton WhatsApp */}
+      {showHelpBubble && (
         <div className="help-bubble">
           <p></p>
           Nous sommes ravis 
@@ -104,12 +83,11 @@ const Index = () => {
         </div>
       </div>
 
-
       {/* Header */}
       <header className="header">
         <div className="container header-content">
           <a href="/" className="logo">
-            <img src="/logo.png" alt="logo" />
+            <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="logo" />
           </a>
 
           <button
@@ -164,7 +142,7 @@ const Index = () => {
                 {[...partnersLogos, ...partnersLogos].map((logo, index) => (
                   <div key={index} className="partner-logo-wrapper">
                     <img
-                      src={`/${logo}`} 
+                      src={`${import.meta.env.BASE_URL}/${logo}`} 
                       alt={`Partenaire ${index + 1}`}
                       className="partner-logo"
                     />
@@ -180,7 +158,7 @@ const Index = () => {
             <br /> le leader du déstockage en Europe ! 
             <br />Des milliers de produits à prix cassés, disponibles immédiatement
           </h1>
-          <img src="/stats.avif" alt="Image des réalisations" className="stats-image" />
+          <img src={`${import.meta.env.BASE_URL}/stats.avif`} alt="Image des réalisations" className="stats-image" />
           <div className="stats-counter">
             <div className="counter-item">
               <span className="counter-number">+2000</span>
@@ -200,7 +178,7 @@ const Index = () => {
         <section id="products" className="products">
           <div className="container">
             <div className="product1">
-              <img src="/logo.png" alt="logo de l'entreprise" />
+              <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="logo de l'entreprise" />
               <h1>Des produits de qualité à prix cassés !</h1>
             </div>
 
@@ -208,7 +186,7 @@ const Index = () => {
               {[{ image: "1.jpg", description: "COLIS" }, { image: "2.jpg", description: "CHAUSSURES" }, { image: "4.jpg", description: "ACCESSOIRES" }, { image: "5.jpg", description: "PALETTES VARIÉES" }, { image: "6.jpg", description: "PARFUMS" }, { image: "7.jpg", description: "AUTOMOBILES" }].map((product, index) => (
                 <div key={index} className="product-card">
                   <img
-                    src={`/${product.image}`} 
+                    src={`${import.meta.env.BASE_URL}/${product.image}`} 
                     alt={`Produit ${index + 1}`}
                     className="product-image"
                   />
@@ -219,38 +197,36 @@ const Index = () => {
               ))}
             </div>
             <h2>
-  ET BIEN PLUS ENCORE ... 
-  <br />
-  <a href="tel:+33123456789" className="contact-link">contactez-nous dès maintenant 7/7 24/24 !</a>
-</h2>
-
+              ET BIEN PLUS ENCORE ... 
+              <br />
+              <a href="tel:+33123456789" className="contact-link">contactez-nous dès maintenant 7/7 24/24 !</a>
+            </h2>
           </div>
         </section>
 
-       <section className="partners2">
-      <div className="carousel-wrapper2">
-        <motion.div
-          className="carousel2"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-        >
-          {[...images, ...images].map((src, index) => (
-            <div key={index} className="carousel-item">
-              <img src={src} alt={`Slide ${index + 1}`} className="partner-logo2" />
-            </div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+        <section className="partners2">
+          <div className="carousel-wrapper2">
+            <motion.div
+              className="carousel2"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+            >
+              {[...images, ...images].map((src, index) => (
+                <div key={index} className="carousel-item">
+                  <img src={`${import.meta.env.BASE_URL}/${src}`} alt={`Slide ${index + 1}`} className="partner-logo2" />
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
 
         <section className="newsletter">
           <div className="container newsletter-content">
             <h1>Ne ratez aucune bonne affaire ! </h1>
 
             <p>
-            Abonnez-vous à notre newsletter pour découvrir nos nouveaux arrivages avant tout le monde et
-            
-             profiter d’offres spéciales en exclusivité
+              Abonnez-vous à notre newsletter pour découvrir nos nouveaux arrivages avant tout le monde et
+              profiter d’offres spéciales en exclusivité
             </p>
             <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
               <input
@@ -265,47 +241,41 @@ const Index = () => {
             </form>
           </div>
         </section>
-         {/* Nouvelle section */}
-      <section className="service-highlights">
-        <div className="container service-grid">
-          <div className="service-item">
-            <Smile size={48} color="#FF7F32"/>
-            <h3>Satisfaction Client</h3>
-            <p>Nos clients sont notre priorité, avec un service adapté à leurs besoins.</p>
+
+        {/* Nouvelle section */}
+        <section className="service-highlights">
+          <div className="container service-grid">
+            <div className="service-item">
+              <Smile size={48} color="#FF7F32"/>
+              <h3>Satisfaction Client</h3>
+              <p>Nos clients sont notre priorité, avec un service adapté à leurs besoins.</p>
+            </div>
+            <div className="service-item">
+              <Truck size={48} color="#FF7F32" />
+              <h3>Livraison dans toute la France</h3>
+              <p>Nous livrons vos commandes rapidement, partout en France.</p>
+            </div>
+            <div className="service-item">
+              <Headphones size={48} color="#FF7F32" />
+              <h3>Service Client</h3>
+              <p>Une assistance 24/7 pour répondre à toutes vos questions.</p>
+            </div>
           </div>
-          <div className="service-item">
-            <Truck size={48} color="#FF7F32" />
-            <h3>Livraison dans toute la France</h3>
-            <p>Nous livrons vos commandes rapidement, partout en France.</p>
-          </div>
-          <div className="service-item">
-            <Headphones size={48} color="#FF7F32" />
-            <h3>Service Client</h3>
-            <p>Une assistance 24/7 pour répondre à toutes vos questions.</p>
-          </div>
-        </div>
-      </section>
+        </section>
       </main>
 
       <footer className="footer">
-
         <div className="footer-content">
-
-          <img src="/logo.png" alt="logo de l'entreprise" />
-
+          <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="logo de l'entreprise" />
           <div>
             <h3>CONTACT </h3>
             <ul className="footer-links">
-              
               <li><a href="tel:+33753894507" className="footer-link">
-              <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
-            </a></li>
-            <li> <a href="mailto:laplateformedestock@gmail.com" className="footer-link">
-              <i className="fas fa-envelope"></i> laplateformedestock@gmail.com
-            </a></li>
-        
-      
-           
+                <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
+              </a></li>
+              <li><a href="mailto:laplateformedestock@gmail.com" className="footer-link">
+                <i className="fas fa-envelope"></i> laplateformedestock@gmail.com
+              </a></li>
             </ul>
           </div>
 
@@ -317,7 +287,6 @@ const Index = () => {
               <li><a href="/cookies" className="footer-link">Politique de cookies</a></li>
             </ul>
           </div>
-
         </div>
       </footer>
 
