@@ -1,0 +1,671 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-blue: #005BBB;
+  --secondary-blue: #003882;
+  --primary-orange: #FF7F32;
+  --text-dark: #2D3748;
+  --text-light: #718096;
+  --background: #FFFFFF;
+  --gradient-blue: linear-gradient(135deg, #1D4E89 0%, #2A69B8 100%);
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  color: var(--text-dark);
+  background: var(--background);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Bulle d'aide positionnée au-dessus du bouton WhatsApp */
+.help-bubble {
+  position: fixed;
+  bottom: 120px; /* Légèrement au-dessus du bouton WhatsApp */
+  right: 30px;
+  background-color: rgba(255, 127, 50); /* Orange avec 80% d'opacité */
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-size: 14px; /* Taille plus petite */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  text-align: center;
+  color: white;
+}
+
+
+/* Ajouter un coin en forme de triangle à la bulle */
+.help-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Positionne le triangle juste sous la bulle */
+  right: 20px; /* Décalage pour aligner avec la bulle */
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid var(--primary-orange); /* Couleur du triangle */
+}
+
+
+
+/* CSS pour le bouton WhatsApp totalement indépendant */
+.whatsapp-btn {
+  position: fixed;  /* Position fixe, reste sur la page même quand on fait défiler */
+  bottom: 30px;     /* Espace de 20px par rapport au bas de la page */
+  right: 30px;      /* Espace de 20px par rapport à la droite de la page */
+  background-color: #25D366; /* Couleur de fond du bouton (vert WhatsApp) */
+  color: white; /* Couleur de l'icône */
+  border-radius: 50%; /* Pour rendre l'icône ronde */
+  padding: 15px; /* Espacement autour de l'icône */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre douce pour le bouton */
+  font-size: 30px; /* Taille de l'icône */
+  z-index: 9999; /* Pour garantir qu'il soit toujours au-dessus de tous les autres éléments */
+  transition: background-color 0.3s ease; /* Effet de transition lorsque l'on survole le bouton */
+  text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128C7E; /* Couleur du bouton lorsqu'on survole */
+  cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+}
+
+.whatsapp-btn i {
+  display: block; /* Assurer que l'icône occupe tout l'espace disponible */
+  font-size: 30px; /* Taille de l'icône */
+}
+/* Bouton de fermeture */
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 16px;
+  margin-left: 10px;
+  position: absolute; /* Positionnement absolu pour le placer en haut à droite */
+  top: 1px; /* Distance du haut de la bulle */
+  right: 5px; /* Distance de la droite de la bulle */
+}
+
+.close-button:hover {
+  opacity: 0.7;
+}
+
+
+
+
+/* Barre de contact fixe */
+.contact-bar {
+  background-color: orange;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.contact-left,
+.contact-right {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-item2{
+  display: none;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  align-items: center;
+}
+@media (max-width: 780px){
+  .contact-item2{
+    display: flex;
+  }
+}
+
+.contact-item {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+}
+@media (max-width: 780px){
+  .contact-item{
+    display: none;
+  }
+}
+
+.contact-item i {
+  margin-right: 5px;
+  font-size: 22px;
+  color: var(--primary-blue);
+ 
+}
+
+.contact-center {
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+}
+
+/* Espacer le header de la barre de contact fixe */
+.header {
+  margin-top: 50px; /* Pour ne pas être caché par la barre fixe */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* Header styles */
+.header {
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: var(--transition);
+  padding: 1em;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo img {
+  height: auto;
+  width: 120px;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--primary-orange);
+}
+
+
+/* Hero section */
+.hero {
+  padding: 150px 0 80px;
+  background: #F7FAFC;;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  padding-bottom: 0.8em;
+}
+
+.hero .strong1{
+  color: var(--primary-orange);
+
+}
+
+.hero p {
+  font-size: 0.9rem;
+  max-width: 600px;
+  color: var( --secondary-blue);
+
+}
+
+/* Button styles */
+.button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+}
+
+.button-primary {
+  background: var(--primary-orange);
+  color: white;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 127, 50, 0.3);
+}
+
+/* Partners section */
+.partners {
+  padding-top: 1em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.partners h2 {
+  text-align: center;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+/* 🚀 Carousel des partenaires */
+.carousel-wrapper {
+  overflow: hidden;
+  width: 70%; /* Réduction de la largeur */
+  max-width: 600px; /* Empêche qu'il soit trop large */ 
+  margin: 0 auto; /* Centre le carousel */
+}
+
+
+.carousel {
+  display: flex;
+  width: max-content;
+  justify-content: center; /* Centre le contenu */
+}
+
+.partner-logo {
+  width: 120px; /* Réduction de la taille des logos */
+  height: auto;
+  margin: 0 10px; /* Réduction de l'espacement */
+  flex-shrink: 0;
+}
+
+.carousel-wrapper2 {
+  overflow: hidden;
+  width: 90%;
+
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel2 {
+  display: flex;
+  width: max-content;
+}
+
+.carousel-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+}
+.partner-logo2 {
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+}
+.partners2 {
+  padding-top: 1em;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+
+
+
+
+
+/* Stats section */
+.stats {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--background);
+}
+
+.stats h1 {
+  text-align: center;
+}
+
+.stats-image {
+  width: 80%; 
+  border-radius: 10px;
+  margin-top: 2rem;
+  max-height: 60vh;
+  margin-bottom: 2rem; /* Plus d’espace sous l’image */
+}
+
+.stats-counter {
+  display: flex;
+  justify-content: center;
+  gap: 5rem; /* Plus d’espace entre les boîtes */
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.counter-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(196, 214, 241, 0.6); /* Bleu clair semi-transparent */
+  padding: 1.5rem 3rem; /* Plus d’espace à l’intérieur des boîtes */
+  border-radius: 16px; /* Coins encore plus arrondis */
+  width: 260px; /* Boîtes plus grandes */
+  height: 150px; /* Ajouter une hauteur fixe pour égaliser la taille des boîtes */
+  box-shadow: 0px 4px 8px rgba(47, 11, 207, 0.4);
+  display: flex; /* Utilisation de flex pour aligner le contenu */
+  flex-direction: column;
+  justify-content: center; /* Centrer le contenu verticalement */
+}
+
+.counter-number {
+  font-size: 2.5rem; /* Texte plus grand */
+  font-weight: bold;
+  color: #FF7A00; /* Orange vif */
+}
+
+.counter-label {
+  font-size: 1.2rem; /* Texte un peu plus grand */
+  font-weight: 500;
+  color: #333; /* Gris foncé pour la lisibilité */
+  text-align: center;
+  margin-top: 0.8rem;
+  min-width: 250px; /* Évite que le texte s’étale trop large */
+}
+
+
+
+
+/* Products section */
+
+#products{
+  margin-bottom: 2em;
+}
+
+.product1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+
+.product1 img {
+  max-width: 300px;
+  height: auto;
+}
+
+
+.products h1{
+  text-align: center;
+  color: var(--primary-blue);
+  margin-bottom: 3rem;
+}
+
+.products h2{
+  text-align: center;
+  margin-top: 2em;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(72, 75, 235, 0.3);
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(72, 75, 235, 0.3);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-description{
+  text-align: CENTER;
+  padding: 1.5rem;
+  color: var(--secondary-blue);
+  font-weight: bolder;
+  font-size: 1.25rem;
+
+}
+.contact-link {
+  color: var(--primary-orange); /* Orange personnalisé */
+  font-weight: bold;
+  text-decoration: none; /* Enlever le soulignement */
+}
+
+.contact-link:hover {
+  text-decoration: underline; /* Soulignement au survol */
+}
+
+
+
+
+/* Newsletter section */
+.newsletter {
+  padding: 30px;
+  background: #1A365D;
+  color: white;
+}
+
+.newsletter h1{
+  font-size: 1.50rem;
+}
+
+.newsletter p{
+font-size: 1rem;
+
+}
+
+.newsletter-content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+
+
+.service-highlights {
+  background-color: #f8f9fa;
+  padding: 50px 0;
+}
+
+.service-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;;
+}
+
+.service-item {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 300px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.service-item h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #333;
+}
+
+.service-item p {
+  font-size: 16px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.service-item svg {
+  margin-bottom: 10px;
+  
+}
+
+
+/* Footer */
+.footer {
+  padding: 20px;
+  background: white;
+  color: white;
+}
+.footer img{
+  width: 100px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1em;
+  color: var(--primary-orange);
+ 
+}
+@media (max-width: 768px){
+  .footer-content
+{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+}
+
+
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-link {
+  
+  text-decoration: none;
+  transition: var(--transition);
+  color: var(--secondary-blue);
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+/* Cookie banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.cookie-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
+  }
+  
+  .nav {
+    display: none;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
