@@ -3,11 +3,11 @@ import { X, Menu, Smile, Truck, Headphones } from 'lucide-react';
 import { motion } from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-// Importation des images pour que Vite les gère bien
+// Importation des images depuis src/assets/
 import logo from "@/assets/logo.png";
 import statsImage from "@/assets/stats.avif";
 
-// Partenaires (Assurez-vous que ces images sont dans `src/assets/`)
+// Partenaires
 import aldi from "@/assets/aldi.png";
 import amazon from "@/assets/amazon.png";
 import colis from "@/assets/colis.png";
@@ -18,7 +18,7 @@ import temu from "@/assets/temu.png";
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showCookieBanner, setShowCookieBanner] = useState(false);
-  const [showHelpBubble, setShowHelpBubble] = useState(true); 
+  const [showHelpBubble, setShowHelpBubble] = useState(true);
 
   useEffect(() => {
     const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
@@ -34,21 +34,9 @@ const Index = () => {
 
   const partnersLogos = [aldi, amazon, colis, lidl, shein, temu];
 
-  // Images dans le carrousel (doivent être dans `src/assets/`)
-  const images = [
-    "/assets/1.jpg",
-    "/assets/2.jpg",
-    "/assets/4.jpg",
-    "/assets/5.jpg",
-    "/assets/6.jpg",
-    "/assets/7.jpg",
-    "/assets/8.jpg",
-    "/assets/9.jpg",
-    "/assets/10.jpg",
-    "/assets/11.jpg",
-    "/assets/12.jpg",
-    "/assets/13.jpg",
-    "/assets/14.jpg",
+  // Images des produits
+  const productImages = [
+    "1.jpg", "2.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"
   ];
 
   const closeHelpBubble = () => {
@@ -91,7 +79,7 @@ const Index = () => {
           </a>
 
           <button className="mobile-menu-button" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <i className="fas fa-times" /> : <i className="fas fa-bars" />}
+            {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
 
           <nav className={`nav ${isMobileMenuOpen ? 'show' : ''}`}>
@@ -107,11 +95,7 @@ const Index = () => {
         <div className="container">
           <h2>Nos partenaires, vos meilleures affaires !</h2>
           <div className="carousel-wrapper">
-            <motion.div 
-              className="carousel"
-              animate={{ x: ["0%", "-50%"] }} 
-              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-            >
+            <motion.div className="carousel" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, duration: 10, ease: "linear" }}>
               {[...partnersLogos, ...partnersLogos].map((logo, index) => (
                 <div key={index} className="partner-logo-wrapper">
                   <img src={logo} alt={`Partenaire ${index + 1}`} className="partner-logo" />
@@ -129,11 +113,11 @@ const Index = () => {
       </section>
 
       {/* Section Produits */}
-      <section id="products" className="products">
+      <section className="products">
         <div className="container">
           <h1>Des produits de qualité à prix cassés !</h1>
           <div className="products-grid">
-            {["1.jpg", "2.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"].map((image, index) => (
+            {productImages.map((image, index) => (
               <div key={index} className="product-card">
                 <img src={`${import.meta.env.BASE_URL}assets/${image}`} alt={`Produit ${index + 1}`} className="product-image" />
                 <div className="product-description">
@@ -144,46 +128,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Section Services */}
-      <section className="service-highlights">
-        <div className="container service-grid">
-          <div className="service-item">
-            <Smile size={48} color="#FF7F32"/>
-            <h3>Satisfaction Client</h3>
-          </div>
-          <div className="service-item">
-            <Truck size={48} color="#FF7F32"/>
-            <h3>Livraison dans toute la France</h3>
-          </div>
-          <div className="service-item">
-            <Headphones size={48} color="#FF7F32"/>
-            <h3>Service Client 24/7</h3>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <img src={logo} alt="logo de l'entreprise" />
-        </div>
-      </footer>
-
-      {/* Bannière des cookies */}
-      {showCookieBanner && (
-        <div className="cookie-banner">
-          <p>Ce site utilise des cookies pour améliorer votre expérience.</p>
-          <button onClick={acceptCookies} className="button button-secondary">
-            Accepter
-          </button>
-        </div>
-      )}
-
-      {/* Bouton WhatsApp */}
-      <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="whatsapp-btn">
-        <i className="fab fa-whatsapp"></i>
-      </a>
     </>
   );
 };
