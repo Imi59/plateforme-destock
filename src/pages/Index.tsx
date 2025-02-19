@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { X, Menu, Smile, Truck, Headphones } from 'lucide-react';
 import { motion } from "framer-motion";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+// Importation des images depuis src/assets/
+import logo from "@/assets/logo.png";
+import statsImage from "@/assets/stats.avif";
+
+// Partenaires
+import aldi from "@/assets/aldi.png";
+import amazon from "@/assets/amazon.png";
+import colis from "@/assets/colis.png";
+import lidl from "@/assets/lidl.png";
+import shein from "@/assets/shein.png";
+import temu from "@/assets/temu.png";
 
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,13 +30,13 @@ const Index = () => {
     setShowCookieBanner(false);
   };
 
-  const partnersLogos = [
-    "aldi.png", "amazon.png", "colis.png", 
-    "lidl.png", "shein.png", "temu.png"
+  const partnersLogos = [aldi, amazon, colis, lidl, shein, temu];
+
+  // Images des produits
+  const productImages = [
+    "1.jpg", "2.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"
   ];
-  const images = [
-    "1.jpg", "2.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "11.jpg", "12.jpg", "13.jpg", "14.jpg",
-  ];
+
 
   const closeHelpBubble = () => {
     setShowHelpBubble(false);  // Fermer la bulle lorsque la croix est cliquée
@@ -86,8 +97,8 @@ const Index = () => {
       {/* Header */}
       <header className="header">
         <div className="container header-content">
-          <a href="/" className="logo">
-            <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="logo" />
+        <a href="/" className="logo">
+            <img src={logo} alt="logo" />
           </a>
 
           <button
@@ -158,7 +169,7 @@ const Index = () => {
             <br /> le leader du déstockage en Europe ! 
             <br />Des milliers de produits à prix cassés, disponibles immédiatement
           </h1>
-          <img src={`${import.meta.env.BASE_URL}/stats.avif`} alt="Image des réalisations" className="stats-image" />
+          <img src={statsImage} alt="Image des réalisations" className="stats-image" />
           <div className="stats-counter">
             <div className="counter-item">
               <span className="counter-number">+2000</span>
@@ -175,15 +186,22 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="products" className="products">
+          {/* Products Section */}
+          <section id="products" className="products">
           <div className="container">
             <div className="product1">
               <img src={`${import.meta.env.BASE_URL}/logo.png`} alt="logo de l'entreprise" />
               <h1>Des produits de qualité à prix cassés !</h1>
             </div>
-
             <div className="products-grid">
-              {[{ image: "1.jpg", description: "COLIS" }, { image: "2.jpg", description: "CHAUSSURES" }, { image: "4.jpg", description: "ACCESSOIRES" }, { image: "5.jpg", description: "PALETTES VARIÉES" }, { image: "6.jpg", description: "PARFUMS" }, { image: "7.jpg", description: "AUTOMOBILES" }].map((product, index) => (
+              {[
+                { image: "1.jpg", description: "COLIS" }, 
+                { image: "2.jpg", description: "CHAUSSURES" },
+                { image: "4.jpg", description: "ACCESSOIRES" },
+                { image: "5.jpg", description: "PALETTES VARIÉES" },
+                { image: "6.jpg", description: "PARFUMS" },
+                { image: "7.jpg", description: "AUTOMOBILES" }
+              ].map((product, index) => (
                 <div key={index} className="product-card">
                   <img
                     src={`${import.meta.env.BASE_URL}/${product.image}`} 
@@ -211,7 +229,7 @@ const Index = () => {
               animate={{ x: ["0%", "-50%"] }}
               transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
             >
-              {[...images, ...images].map((src, index) => (
+              {[...productImages, ...productImages].map((src, index) => (
                 <div key={index} className="carousel-item">
                   <img src={`${import.meta.env.BASE_URL}/${src}`} alt={`Slide ${index + 1}`} className="partner-logo2" />
                 </div>
