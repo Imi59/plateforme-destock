@@ -21,6 +21,13 @@ import img4 from "@/assets/4.jpg";
 import img5 from "@/assets/5.jpg";
 import img6 from "@/assets/6.jpg";
 import img7 from "@/assets/7.jpg";
+import img8 from "@/assets/8.jpg";
+import img9 from "@/assets/9.jpg";
+import img10 from "@/assets/10.jpg";
+import img11 from "@/assets/11.jpg";
+import img12 from "@/assets/12.jpg";
+import img13 from "@/assets/13.jpg";
+import img14 from "@/assets/13.jpg";
 
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,13 +51,21 @@ const Index = () => {
   };
 
   const partnersLogos = [aldi, amazon, colis, lidl, shein, temu];
+
   const productImages = [
     { image: img1, description: "COLIS" }, 
     { image: img2, description: "CHAUSSURES" },
     { image: img4, description: "ACCESSOIRES" },
     { image: img5, description: "PALETTES VARIÉES" },
     { image: img6, description: "PARFUMS" },
-    { image: img7, description: "AUTOMOBILES" }
+    { image: img7, description: "AUTOMOBILES" },
+    { image: img8, description: "AUTOMOBILES" },
+    { image: img9, description: "AUTOMOBILES" },
+    { image: img10, description: "AUTOMOBILES" },
+    { image: img11, description: "AUTOMOBILES" },
+    { image: img12, description: "AUTOMOBILES" },
+    { image: img13, description: "AUTOMOBILES" },
+    { image: img14, description: "AUTOMOBILES" },
   ];
 
   return (
@@ -58,7 +73,8 @@ const Index = () => {
       {/* Bulle d'aide */}
       {showHelpBubble && (
         <div className="help-bubble">
-          <p>Nous sommes ravis de vous aider 24/24 7/7 !</p>
+          <p>Nous sommes ravis de vous aider 
+            <br />24/24 7/7 !</p>
           <button onClick={closeHelpBubble} className="close-button">
             <X size={16} color="white" />
           </button>
@@ -157,48 +173,51 @@ const Index = () => {
 
         {/* Products Section */}
         <section id="products" className="products">
-          <div className="container">
-            <div className="product1">
-              <img src={logo} alt="logo de l'entreprise" />
-              <h1>Des produits de qualité à prix cassés !</h1>
-            </div>
-            <div className="products-grid">
-              {productImages.map((product, index) => (
-                <div key={index} className="product-card">
-                  <img
-                    src={product.image}
-                    alt={`Produit ${index + 1}`}
-                    className="product-image"
-                  />
-                  <div className="product-description">
-                    <p>{product.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <h2>
-              ET BIEN PLUS ENCORE ...
-              <br />
-              <a href="tel:+33123456789" className="contact-link">contactez-nous dès maintenant 7/7 24/24 !</a>
-            </h2>
+  <div className="container">
+    <div className="product1">
+      <img src={logo} alt="logo de l'entreprise" />
+      <h1>Des produits de qualité à prix cassés !</h1>
+    </div>
+    <div className="products-grid">
+      {productImages.slice(0, 7).map((product, index) => (
+        <div key={index} className="product-card">
+          <img
+            src={product.image}
+            alt={`Produit ${index + 1}`}
+            className="product-image"
+          />
+          <div className="product-description">
+            <p>{product.description}</p>
           </div>
-        </section>
+        </div>
+      ))}
+    </div>
+    <h2>
+      ET BIEN PLUS ENCORE ...
+      <br />
+      <a href="tel:+33123456789" className="contact-link">contactez-nous dès maintenant 7/7 24/24 !</a>
+    </h2>
+  </div>
+</section>
 
-        <section className="partners2">
-          <div className="carousel-wrapper2">
-            <motion.div
-              className="carousel2"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-            >
-              {[...productImages, ...productImages].map((src, index) => (
-                <div key={index} className="carousel-item">
-                  <img src={`${import.meta.env.BASE_URL}/${src}`} alt={`Slide ${index + 1}`} className="partner-logo2" />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
+       
+<section className="partners2">
+  <div className="carousel-wrapper2">
+    <motion.div
+      className="carousel2"
+      animate={{ x: ["0%", "-100%"] }}
+      transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+    >
+      {[...productImages, ...productImages].map((product, index) => (
+        <div key={index} className="carousel-item">
+          <img src={product.image} alt={`Image ${index + 1}`} className="partner-logo2" />
+        </div>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
+
 
         <section className="newsletter">
           <div className="container newsletter-content">
