@@ -36,7 +36,30 @@ import img10 from "@/assets/10.jpg";
 import img11 from "@/assets/11.jpg";
 import img12 from "@/assets/12.jpg";
 import img13 from "@/assets/13.jpg";
-import img14 from "@/assets/13.jpg";
+import img14 from "@/assets/14.jpg";
+import img15 from "@/assets/15.jpg";
+import img16 from "@/assets/16.jpg";
+import img17 from "@/assets/17.jpg";
+import img18 from "@/assets/18.jpg";
+import img19 from "@/assets/19.jpg";
+import img20 from "@/assets/20.jpg";
+import img21 from "@/assets/21.jpg";
+import img22 from "@/assets/22.jpg";
+import img23 from "@/assets/23.jpg";
+import img24 from "@/assets/24.jpg";
+import img25 from "@/assets/25.jpg";
+import img26 from "@/assets/26.jpg";
+import img27 from "@/assets/27.jpg";
+import img28 from "@/assets/28.jpg";
+import img29 from "@/assets/29.jpg";
+import img30 from "@/assets/30.jpg";
+import img31 from "@/assets/31.jpg";
+import img32 from "@/assets/32.jpg";
+import img33 from "@/assets/33.jpg";
+import img34 from "@/assets/34.jpg";
+import img35 from "@/assets/35.jpg";
+import img36 from "@/assets/36.jpg";
+
 
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,12 +85,15 @@ const Index = () => {
   const partnersLogos = [aldi, amazon, colis, lidl, shein, temu, apple, samsung, bosch, dell, canon, lacoste, lancome, sony];
 
   const productImages = [
-    { image: img1, description: "COLIS" }, 
+    { image: img17, description: "COLIS" }, 
+    { image: img26, description: "AGROALIMENTAIRE" }, 
     { image: img2, description: "CHAUSSURES" },
     { image: img4, description: "ACCESSOIRES" },
     { image: img5, description: "PALETTES VARIÉES" },
     { image: img6, description: "PARFUMS" },
-    { image: img7, description: "AUTOMOBILES" },
+    { image: img24, description: "AUTOMOBILES" },
+    { image: img30, description: "COMMERCE DE DIAMANTS" },
+    { image: img30, description: "OR" },
     { image: img8, description: "AUTOMOBILES" },
     { image: img9, description: "AUTOMOBILES" },
     { image: img10, description: "AUTOMOBILES" },
@@ -75,6 +101,8 @@ const Index = () => {
     { image: img12, description: "AUTOMOBILES" },
     { image: img13, description: "AUTOMOBILES" },
     { image: img14, description: "AUTOMOBILES" },
+    { image: img1, description: "COLIS" }, 
+    { image: img7, description: "AUTOMOBILES" },
   ];
 
   return (
@@ -241,10 +269,11 @@ const Index = () => {
   <div className="container">
     <div className="product1">
       <img src={logo} alt="logo de l'entreprise" />
-      <h1>Des produits de qualité à prix cassés !</h1>
+      <h1>Profitez des plus grandes marques à prix déstockés avec une <strong>RENTABILITÉ GARANTIE</strong> 
+      <br />que vous soyez particulier ou professionnel !</h1>
     </div>
     <div className="products-grid">
-      {productImages.slice(0, 6).map((product, index) => (
+      {productImages.slice(0, 9).map((product, index) => (
         <div key={index} className="product-card">
           <img
             src={product.image}
@@ -260,7 +289,7 @@ const Index = () => {
     <h2>
       ET BIEN PLUS ENCORE ...
       <br />
-      <a href="tel:+33123456789" className="contact-link">contactez-nous dès maintenant 7/7 24/24 !</a>
+      <a href="tel:+33123456789" className="contact-link">Contactez-nous dès maintenant 24/7 !</a>
     </h2>
   </div>
 </section>

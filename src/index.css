@@ -497,7 +497,7 @@ p strong {
 }
 
 .footer-text {
-  background-color: rgba(0, 0, 0, 0.8); /* Un fond noir opaque */
+  background-color: rgba(0, 0, 0, 0.7); /* Un fond noir opaque */
   padding: 10px;
   border-radius: 10px;
 }
@@ -612,9 +612,12 @@ p strong {
 
 }
 .contact-link {
-  color: var(--primary-orange); /* Orange personnalisé */
+  color: white;
+ 
+  padding: 10px 20px;
   font-weight: bold;
   text-decoration: none; /* Enlever le soulignement */
+  background-color: var(--primary-blue);
 }
 
 .contact-link:hover {
