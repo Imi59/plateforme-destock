@@ -185,7 +185,7 @@ const Index = () => {
 
         {/* Stats Section */}
         <section className="stats">
-          <h1>PLATEFORME DESTOCK : </h1>    
+          <h1> PLATEFORME DESTOCK : </h1>    
 
           <p>Garantie des meilleurs produits de grandes marques à prix déstockages !</p>
 
@@ -198,8 +198,7 @@ const Index = () => {
           particuliers qu'aux professionnels.
           <br /> Des centaines de grandes marques et des arrivages chaque semaine : 
           <br />
-          <strong>smartphones, multimédia, informatique, électroménager, jouets, vêtements, cosmétiques</strong>.
-          <br /> 
+          <strong>smartphones, multimédia, informatique, électroménager, jouets, vêtements, cosmétiques et BIEN PLUS !</strong>       <br /> 
           Achetez à <strong>prix déstockage toute l'année</strong>, avec une rentabilité garantie.
           <br /><strong>Nous sommes présents sur les réseaux sociaux</strong> avec plus de <strong>100 000 abonnés</strong> ! 
           </p>
@@ -219,8 +218,26 @@ const Index = () => {
           </div>
         </section>
 
+      
+
         {/* Products Section */}
         <section id="products" className="products">
+        <div className="footer-banner">
+    <div className="footer-text">
+      <p className='strongy'>SATISFACTION ET RENTABILITÉ GARANTIES A 100% !</p> 
+      <p>
+        Rejoignez nos réseaux sociaux pour ne rater aucune bonne affaire !
+      </p>
+      <div className="social-links">
+        <a href="https://www.snapchat.com" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-snapchat-square"></i>
+        </a>
+        <a href="https://wa.me/numéro" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-whatsapp-square"></i>
+        </a>
+      </div>
+    </div>
+  </div>
   <div className="container">
     <div className="product1">
       <img src={logo} alt="logo de l'entreprise" />

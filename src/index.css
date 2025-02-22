@@ -256,6 +256,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-bottom: 2em;
 }
 
 .hero h1 {
@@ -279,12 +280,12 @@ body {
 }
  
 .blink-text {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
   color: red;
   text-align: center;
   background-color: yellow;
-  padding: 30px 40px;
+  padding: 30px;
   width: fit-content;
   display: inline-block;
   position: relative;
@@ -293,13 +294,15 @@ body {
   margin-bottom: 1.5em;
   
   /* Création de l'effet burst */
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: ellipse(48% 40% at 50% 50%);
+
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Effet ombre */
 }
 
 @media (max-width: 768px) {
   .blink-text {
-    font-size: 18px;
+    font-size: 20px;
+    padding: 25px;
   
   }
 }
@@ -427,6 +430,8 @@ body {
 
 .stats h1 {
   text-align: center;
+  font-size: 30px;
+  color: var(--primary-orange);
 }
 
 .stats-image {
@@ -474,6 +479,70 @@ body {
   margin-top: 0.8rem;
   min-width: 250px; /* Évite que le texte s’étale trop large */
 }
+
+p strong {
+  color: var(--secondary-blue);
+
+}
+
+.footer-banner {
+  width: 100%;
+  height: 200px;
+  background-image: url('assets/1.jpg'); /* Remplace par l'URL de ton image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text {
+  background-color: rgba(0, 0, 0, 0.8); /* Un fond noir opaque */
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.footer-text p {
+  color: var(--primary-orange);
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 768px){
+  .footer-text p {
+    font-size: 16px;
+  }
+}
+.footer-text .strongy{
+  font-weight: bolder;
+
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-links a {
+  display: block;
+}
+
+.social-links i {
+  font-size: 50px;
+  color: var(--primary-orange);
+  transition: transform 0.3s ease;
+}
+@media (max-width: 768px){
+  .social-links i {
+    font-size: 30px;
+  }
+}
+
+
+.social-links i:hover {
+  transform: scale(1.1);
+}
+
 
 
 
