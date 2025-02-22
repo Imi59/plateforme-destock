@@ -229,6 +229,10 @@ const Index = () => {
 
           </div>
         </section>
+   
+     
+
+
 
         {/* Stats Section */}
         <section id='stats' className="stats">
