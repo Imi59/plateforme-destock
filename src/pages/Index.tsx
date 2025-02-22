@@ -93,7 +93,7 @@ const Index = () => {
     { image: img6, description: "PARFUMS" },
     { image: img24, description: "AUTOMOBILES" },
     { image: img30, description: "COMMERCE DE DIAMANTS" },
-    { image: img30, description: "OR" },
+    { image: img29, description: "OR" },
     { image: img8, description: "AUTOMOBILES" },
     { image: img9, description: "AUTOMOBILES" },
     { image: img10, description: "AUTOMOBILES" },
@@ -103,6 +103,24 @@ const Index = () => {
     { image: img14, description: "AUTOMOBILES" },
     { image: img1, description: "COLIS" }, 
     { image: img7, description: "AUTOMOBILES" },
+    { image: img15, description: "AUTOMOBILES" },
+    { image: img16, description: "AUTOMOBILES" },
+    { image: img18, description: "AUTOMOBILES" },
+    { image: img19, description: "AUTOMOBILES" },
+    { image: img20, description: "AUTOMOBILES" },
+    { image: img21, description: "AUTOMOBILES" },
+    { image: img22, description: "AUTOMOBILES" },
+    { image: img23, description: "AUTOMOBILES" },
+    { image: img25, description: "AUTOMOBILES" },
+    { image: img27, description: "AUTOMOBILES" },
+    { image: img28, description: "AUTOMOBILES" },
+    { image: img31, description: "AUTOMOBILES" },
+    { image: img32, description: "AUTOMOBILES" },
+    { image: img33, description: "AUTOMOBILES" },
+    { image: img34, description: "AUTOMOBILES" },
+    { image: img35, description: "AUTOMOBILES" },
+    { image: img36, description: "AUTOMOBILES" }
+
   ];
 
   return (
@@ -171,8 +189,9 @@ const Index = () => {
 
           <nav className={`nav ${isMobileMenuOpen ? 'show' : ''}`}>
             <a href="/" className="nav-link">ACCUEIL</a>
-            <a href="/about" className="nav-link">À PROPOS</a>
-            <a href="/contact" className="nav-link">CONTACT</a>
+            <a href="#stats" className="nav-link">À PROPOS</a>
+            <a href="tel:+33758430374" className="nav-link">
+              CONTACT</a>
           </nav>
         </div>
       </header>
@@ -212,7 +231,7 @@ const Index = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="stats">
+        <section id='stats' className="stats">
           <h1> PLATEFORME DESTOCK : </h1>    
 
           <p>Garantie des meilleurs produits de grandes marques à prix déstockages !</p>
@@ -300,7 +319,7 @@ const Index = () => {
   <motion.div
   className="carousel2"
   animate={{ x: ["0%", "-50%"] }}  // Défile sur seulement 50% pour éviter un arrêt brusque
-  transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
+  transition={{ repeat: Infinity, duration: 90, ease: "linear" }}
 >
   {[...productImages, ...productImages].map((product, index) => (
     <div key={index} className="carousel-item">
@@ -318,8 +337,7 @@ const Index = () => {
             <h1>Ne ratez aucune bonne affaire ! </h1>
 
             <p>
-              Abonnez-vous à notre newsletter pour découvrir nos nouveaux arrivages avant tout le monde et
-              profiter d’offres spéciales en exclusivité
+            Profitez de prix déstockage, d'exclusivités et d'arrivages chaque semaine !
             </p>
             <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
               <input
@@ -339,19 +357,24 @@ const Index = () => {
         <section className="service-highlights">
           <div className="container service-grid">
             <div className="service-item">
-              <Smile size={48} color="#FF7F32"/>
+            <i className="fa-solid fa-face-laugh-beam"></i>
               <h3>Satisfaction Client</h3>
-              <p>Nos clients sont notre priorité, avec un service adapté à leurs besoins.</p>
+              <p>Nos clients sont notre priorité ! Risque 0 absolu </p>
             </div>
             <div className="service-item">
-              <Truck size={48} color="#FF7F32" />
+            <i className="fa-solid fa-truck-fast"></i>
               <h3>Livraison dans toute la France</h3>
-              <p>Nous livrons vos commandes rapidement, partout en France.</p>
+              <p>Nous livrons vos commandes partout en France et en Europe !</p>
             </div>
             <div className="service-item">
-              <Headphones size={48} color="#FF7F32" />
-              <h3>Service Client</h3>
-              <p>Une assistance 24/7 pour répondre à toutes vos questions.</p>
+            <i className="fa-solid fa-phone-volume"></i>
+              <h3>Service Client Réactif</h3>
+              <p>Une assistance 24/7 pour répondre à toutes vos questions !</p>
+            </div>
+            <div className="service-item">
+            <i className="fa-solid fa-check"></i>
+              <h3>Produits de Qualité</h3>
+              <p>Des grandes marques à prix déstockés, avec une rentabilité garantie !</p>
             </div>
           </div>
         </section>
