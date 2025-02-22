@@ -8,12 +8,20 @@ import logo from "@/assets/logo.png";
 import statsImage from "@/assets/stats.avif";
 
 // Importation des logos des partenaires
-import aldi from "@/assets/aldi.png";
-import amazon from "@/assets/amazon.png";
-import colis from "@/assets/colis.png";
-import lidl from "@/assets/lidl.png";
-import shein from "@/assets/shein.png";
-import temu from "@/assets/temu.png";
+import aldi from "@/assets/partenaires/aldi.png";
+import amazon from "@/assets/partenaires/amazon.png";
+import colis from "@/assets/partenaires/colis.png";
+import lidl from "@/assets/partenaires/lidl.png";
+import shein from "@/assets/partenaires/shein.png";
+import temu from "@/assets/partenaires/temu.png";
+import apple from "@/assets/partenaires/apple.png";
+import samsung from "@/assets/partenaires/samsung.png";
+import bosch from "@/assets/partenaires/bosch.png";
+import dell from "@/assets/partenaires/dell.png";
+import canon from "@/assets/partenaires/canon.png";
+import lacoste from "@/assets/partenaires/lacoste.png";
+import lancome from "@/assets/partenaires/lancome.png";
+import sony from "@/assets/partenaires/sony.png";
 
 // Importation des images des produits
 import img1 from "@/assets/1.jpg";
@@ -51,7 +59,7 @@ const Index = () => {
     setShowHelpBubble(false);
   };
 
-  const partnersLogos = [aldi, amazon, colis, lidl, shein, temu];
+  const partnersLogos = [aldi, amazon, colis, lidl, shein, temu, apple, samsung, bosch, dell, canon, lacoste, lancome, sony];
 
   const productImages = [
     { image: img1, description: "COLIS" }, 
@@ -86,10 +94,10 @@ const Index = () => {
       <div className="contact-bar">
         <div className="container contact-bar-content">
           <div className="contact-left">
-            <a href="tel:+33753894507" className="contact-item">
-              <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
+            <a href="tel:+33758430374" className="contact-item">
+              <i className="fas fa-phone-alt"></i> +33 7 58 43 03 74
             </a>
-            <a href="tel:+33753894507" className="contact-item2">
+            <a href="tel:+33758430374" className="contact-item2">
               <i className="fas fa-phone-alt"></i> 
             </a>
           </div>
@@ -102,16 +110,16 @@ const Index = () => {
             </a>
           </div>
           <div className="contact-right">
-            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item">
+            <a href="https://wa.me/++33758430374" target="_blank" rel="noopener noreferrer" className="contact-item">
               <i className="fab fa-telegram"></i>
             </a>
-            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item">
+            <a href="https://wa.me/++33758430374" target="_blank" rel="noopener noreferrer" className="contact-item">
               <i className="fab fa-snapchat"></i>
             </a>
-            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item2">
+            <a href="https://wa.me/++33758430374" target="_blank" rel="noopener noreferrer" className="contact-item2">
               <i className="fab fa-telegram"></i>
             </a>
-            <a href="https://wa.me/+33753894507" target="_blank" rel="noopener noreferrer" className="contact-item2">
+            <a href="https://wa.me/++33758430374" target="_blank" rel="noopener noreferrer" className="contact-item2">
               <i className="fab fa-snapchat"></i>
             </a>
           </div>
@@ -145,18 +153,25 @@ const Index = () => {
         {/* Hero Section */}
         <section className="hero">
           <div className="container hero-content">
-            <p>AUTOMOBILE, AGROALIMENTAIRE, VÊTEMENTS, ÉLECTROMÉNAGER, HIGH-TECH À PRIX FOUS !</p>
-            <h1>La plateforme professionnelle de <strong className='strong1'>déstockage</strong></h1>
-            <a href="#products" className="button button-primary">Contactez-nous dès maintenant !</a>
+            <p>AGROALIMENTAIRE, AUTOMOBILE, VÊTEMENTS, ÉLECTROMÉNAGER, HIGH-TECH 
+              <br />à prix déstockage !
+            </p>
+            <h1>LA PLATEFORME PROFESSIONNELLE DE <strong className='strong1'>DÉSTOCKAGE</strong></h1>
+            <h2 className="blink-text">ARRIVAGES CHAQUE SEMAINE</h2>
+            <a href="#products" className="button button-primary">CONTACTEZ-NOUS !</a>
           </div>
         </section>
 
         {/* Section Partenaires */}
         <section className="partners">
-          <div className="container">
+          <div className="container-ctr">
+
             <h2>Nos partenaires, vos meilleures affaires !</h2>
+
+            <p> <strong>+ 500 marques dans notre catalogue en ligne</strong></p>
+
             <div className="carousel-wrapper">
-              <motion.div className="carousel" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, duration: 10, ease: "linear" }}>
+              <motion.div className="carousel" animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, duration: 8, ease: "linear" }}>
                 {[...partnersLogos, ...partnersLogos].map((logo, index) => (
                   <div key={index} className="partner-logo-wrapper">
                     <img src={logo} alt={`Partenaire ${index + 1}`} className="partner-logo" />
@@ -164,13 +179,30 @@ const Index = () => {
                 ))}
               </motion.div>
             </div>
+
           </div>
         </section>
 
         {/* Stats Section */}
         <section className="stats">
-          <h1>Plateforme Destock : le leader du déstockage en Europe !</h1>
+          <h1>PLATEFORME DESTOCK : </h1>    
+
+          <p>Garantie des meilleurs produits de grandes marques à prix déstockages !</p>
+
           <img src={statsImage} alt="Image des réalisations" className="stats-image" />
+
+          <p> <strong>Inutile de présenter la plateforme de déstockage numéro 1 en Europe</strong>, 
+          et notamment en France Métropolitaine !
+          <br />
+          <strong>Une plateforme d'achat à prix grossiste</strong>, accessible aussi bien aux 
+          particuliers qu'aux professionnels.
+          <br /> Des centaines de grandes marques et des arrivages chaque semaine : 
+          <br />
+          <strong>smartphones, multimédia, informatique, électroménager, jouets, vêtements, cosmétiques</strong>.
+          <br /> 
+          Achetez à <strong>prix déstockage toute l'année</strong>, avec une rentabilité garantie.
+          <br /><strong>Nous sommes présents sur les réseaux sociaux</strong> avec plus de <strong>100 000 abonnés</strong> ! 
+          </p>
           <div className="stats-counter">
             <div className="counter-item">
               <span className="counter-number">+2000</span>
@@ -181,7 +213,7 @@ const Index = () => {
               <span className="counter-label">Palettes Vendues</span>
             </div>
             <div className="counter-item">
-              <span className="counter-number">+20</span>
+              <span className="counter-number">+10 000</span>
               <span className="counter-label">Partenaires</span>
             </div>
           </div>
@@ -287,8 +319,8 @@ const Index = () => {
           <h3>CONTACT</h3>
           <ul className="footer-links">
             <li>
-              <a href="tel:+33753894507" className="footer-link">
-                <i className="fas fa-phone-alt"></i> +33 7 53 89 45 07
+              <a href="tel:+33758430374" className="footer-link">
+                <i className="fas fa-phone-alt"></i> +33 7 58 43 03 74
               </a>
             </li>
             <li>
@@ -335,7 +367,7 @@ const Index = () => {
 
       {/* Le bouton WhatsApp totalement indépendant */}
       <a
-        href="https://wa.me/+33753894507"
+        href="https://wa.me/++33758430374"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-btn"
