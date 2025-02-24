@@ -409,8 +409,8 @@ const Index = () => {
         <div>
           <h3>LIENS UTILES</h3>
           <ul className="footer-links">
-            <li><Link to="/privacy" className="footer-link">Politique de confidentialité</Link></li>
-            <li><Link to="/mentions-legales" className="footer-link">Mentions légales</Link></li>
+            <li><Link to="/mentions-legales" className="footer-link">Politique de confidentialité</Link></li>
+            <li><Link to="/mentions-legales" className="footer-link">Mentions légales - CGV</Link></li>
             <li><Link to="/politique-cookies" className="footer-link">Politique de cookies</Link></li>
           </ul>
         </div>
