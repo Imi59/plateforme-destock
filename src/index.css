@@ -763,19 +763,29 @@ font-size: 1rem;
   bottom: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--primary-orange);
   padding: 1rem;
-  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
-.cookie-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  color: var(--primary-orange);
+.cookie-banner p {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 1em;
 }
+
+.cookie-banner button{
+  background: white;
+  color: var(--primary-orange);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 2em;
+}
+
+
 
 
 /* Responsive design */

@@ -66,15 +66,17 @@ const Index = () => {
   const [showCookieBanner, setShowCookieBanner] = useState(false);
   const [showHelpBubble, setShowHelpBubble] = useState(true);
 
+ 
+
   useEffect(() => {
-    const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
-    if (!hasAcceptedCookies) {
+    const cookiePreference = localStorage.getItem('cookiePreference');
+    if (!cookiePreference) {
       setShowCookieBanner(true);
     }
   }, []);
-
-  const acceptCookies = () => {
-    localStorage.setItem('cookiesAccepted', 'true');
+  
+  const handleCookiePreference = (accept) => {
+    localStorage.setItem('cookiePreference', accept ? 'accepted' : 'declined');
     setShowCookieBanner(false);
   };
 
@@ -409,7 +411,7 @@ const Index = () => {
           <ul className="footer-links">
             <li><Link to="/privacy" className="footer-link">Politique de confidentialité</Link></li>
             <li><Link to="/mentions-legales" className="footer-link">Mentions légales</Link></li>
-            <li><Link to="/cookies" className="footer-link">Politique de cookies</Link></li>
+            <li><Link to="/politique-cookies" className="footer-link">Politique de cookies</Link></li>
           </ul>
         </div>
       </div>
@@ -424,19 +426,16 @@ const Index = () => {
 
       {/* Bannière des cookies */}
       {showCookieBanner && (
-        <div className="cookie-banner">
-          <div className="cookie-content">
-            <p>
-              Ce site utilise des cookies pour améliorer votre expérience. En
-              poursuivant votre navigation, vous acceptez notre politique de
-              confidentialité.
-            </p>
-            <button onClick={acceptCookies} className="button button-secondary">
-              Accepter
-            </button>
-          </div>
-        </div>
-      )}
+      <div className="cookie-banner">
+        <p>
+  Ce site utilise des cookies pour améliorer votre expérience. Acceptez-vous leur utilisation ?  
+  Vous pouvez consulter notre <Link to="/politique-cookies" className="cookie-link">politique de cookies</Link> pour en savoir plus.
+</p>
+        <button onClick={() => handleCookiePreference(true)} className="button accept">Accepter</button>
+        <button onClick={() => handleCookiePreference(false)} className="button decline">Refuser</button>
+      </div>
+    )}
+
 
       {/* Le bouton WhatsApp totalement indépendant */}
       <a
